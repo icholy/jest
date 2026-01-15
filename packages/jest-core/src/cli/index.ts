@@ -79,9 +79,13 @@ export async function runCLI(
 
   const configsOfProjectsToRun = getConfigsOfProjectsToRun(configs, {
     ignoreProjects: argv.ignoreProjects,
-    selectProjects: argv.selectProjects,
+    selectProjects: argv.selectProjects || globalConfig.selectProjects,
   });
-  if (argv.selectProjects || argv.ignoreProjects) {
+  if (
+    argv.selectProjects ||
+    argv.ignoreProjects ||
+    globalConfig.selectProjects
+  ) {
     const namesMissingWarning = getProjectNamesMissingWarning(configs, {
       ignoreProjects: argv.ignoreProjects,
       selectProjects: argv.selectProjects,

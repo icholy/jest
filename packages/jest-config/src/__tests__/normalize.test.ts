@@ -2204,3 +2204,21 @@ describe('runInBand', () => {
     expect(options.runInBand).toBe(true);
   });
 });
+
+describe('selectProjects', () => {
+  test('is included in globalConfig when set', async () => {
+    const {options} = await normalize(
+      {
+        rootDir: '/root/',
+        selectProjects: ['project-a', 'project-b'],
+      },
+      {} as Config.Argv,
+    );
+    expect(options.selectProjects).toEqual(['project-a', 'project-b']);
+  });
+
+  test('is undefined when not set', async () => {
+    const {options} = await normalize({rootDir: '/root/'}, {} as Config.Argv);
+    expect(options.selectProjects).toBeUndefined();
+  });
+});

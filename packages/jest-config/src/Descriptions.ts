@@ -66,6 +66,8 @@ const descriptions: {[key in keyof Config.InitialOptions]: string} = {
     'A list of paths to directories that Jest should use to search for files in',
   runner:
     "Allows you to use a custom runner instead of Jest's default test runner",
+  selectProjects:
+    "Run tests from only the specified projects. Jest uses the 'displayName' config property to identify each project.",
   setupFiles:
     'The paths to modules that run some code to configure or set up the testing environment before each test',
   setupFilesAfterEnv:

@@ -415,6 +415,8 @@ Jest uses the seed internally for shuffling the order in which test suites are r
 
 Run the tests of the specified projects. Jest uses the attribute `displayName` in the configuration to identify each project. If you use this option, you should provide a `displayName` to all your projects.
 
+This can also be configured via [`selectProjects`](Configuration.md#selectprojects-arraystring) in the configuration file. The CLI flag takes precedence over the config file option.
+
 ### `--setupFilesAfterEnv <path1> ... <pathN>`
 
 A list of paths to modules that run some code to configure or to set up the testing framework before each test. Beware that files imported by the setup scripts will not be mocked during testing.

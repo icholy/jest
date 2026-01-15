@@ -2,6 +2,7 @@
 
 ### Features
 
+- `[jest-config, jest-core]` Add `selectProjects` configuration option
 - `[jest-config]` Add `defineConfig` and `mergeConfig` helpers for type-safe Jest config ([#15844](https://github.com/jestjs/jest/pull/15844))
 - `[jest-fake-timers]` Add `setTimerTickMode` to configure how timers advance
 

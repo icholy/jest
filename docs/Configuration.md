@@ -1672,6 +1672,62 @@ This option has no effect if you use [native ESM](ECMAScriptModules.md).
 
 :::
 
+### `selectProjects` \[array&lt;string&gt;]
+
+Default: `undefined`
+
+When using [multi-project configurations](#projects-arraystring--projectconfig), this option allows you to specify which projects should be selected when running Jest. Jest uses the `displayName` property of each project configuration to identify projects.
+
+```js tab title="jest.config.js"
+const {defineConfig} = require('jest');
+
+module.exports = defineConfig({
+  projects: [
+    {
+      displayName: 'unit',
+      testMatch: ['**/*.test.js'],
+    },
+    {
+      displayName: 'integration',
+      testMatch: ['**/*.integration.js'],
+    },
+  ],
+  selectProjects: ['unit'],
+});
+```
+
+```ts tab title="jest.config.ts"
+import {defineConfig} from 'jest';
+
+export default defineConfig({
+  projects: [
+    {
+      displayName: 'unit',
+      testMatch: ['**/*.test.js'],
+    },
+    {
+      displayName: 'integration',
+      testMatch: ['**/*.integration.js'],
+    },
+  ],
+  selectProjects: ['unit'],
+});
+```
+
+With this configuration, running `jest` will only run tests from the `unit` project. You can override this by using the `--selectProjects` CLI flag:
+
+```bash
+jest --selectProjects integration
+```
+
+This option works with the [`--ignoreProjects`](CLI.md#--ignoreprojects-project1--projectn) flag. If both are specified, Jest will first select projects from `selectProjects`, then exclude any projects specified in `--ignoreProjects`.
+
+:::note
+
+The `--selectProjects` CLI flag takes precedence over the `selectProjects` configuration option. When you provide `--selectProjects` on the command line, it overrides the configuration file setting.
+
+:::
+
 ### `setupFiles` \[array]
 
 Default: `[]`

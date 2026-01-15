@@ -308,6 +308,7 @@ export const InitialOptions = Type.Partial(
     runTestsByPath: Type.Boolean(),
     runtime: Type.String(),
     sandboxInjectedGlobals: Type.Array(Type.String()),
+    selectProjects: Type.Array(Type.String()),
     setupFiles: Type.Array(Type.String()),
     setupFilesAfterEnv: Type.Array(Type.String()),
     showSeed: Type.Boolean(),

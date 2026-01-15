@@ -298,6 +298,7 @@ export type GlobalConfig = {
   runTestsByPath: boolean;
   rootDir: string;
   seed: number;
+  selectProjects?: Array<string>;
   showSeed?: boolean;
   shard?: ShardConfig;
   silent?: boolean;
